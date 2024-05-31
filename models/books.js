@@ -11,5 +11,13 @@ const languageSchema = new Schema({
 })
 
 // model and export: 
-const Language = mongoose.model('Language', languageSchema)
+const Books= mongoose.model('Books', booksSchema)
 module.exports = books
+
+
+//         "title": "The Shinobi Initiative",
+//         "description": "The reality-bending adventures of a clandestine service agency in the year 2166",
+//         "year": 2014,
+//         "quantity": 10,
+//         "imageURL": "https://imgur.com/LEqsHy5.jpeg"
+//     }),
