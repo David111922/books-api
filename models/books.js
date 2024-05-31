@@ -2,17 +2,17 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose 
 
 // schema:
-const languageSchema = new Schema({
+const bookSchema = new Schema({
     title: { type: String, required: true },
     description: String,
-    year: String, Number,
+    year:  Number,
     quantity: Number,
     image: String
 })
 
 // model and export: 
-const Books= mongoose.model('Books', booksSchema)
-module.exports = books
+const Books= mongoose.model('Books', bookSchema)
+module.exports = Books
 
 
 //         "title": "The Shinobi Initiative",

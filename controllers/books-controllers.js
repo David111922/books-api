@@ -1,12 +1,12 @@
 // Dependencie
-const mongoose = require("mongoose");
+
 const express = require('express')
 const books = express.Router()
 const Books= require('../models/books.js')
  
 
 
-books.get('books/seed', (req, res) => {
+books.get('/seed', (req, res) => {
     Books.insertMany([{
         "title": "The Shinobi Initiative",
         "description": "The reality-bending adventures of a clandestine service agency in the year 2166",
@@ -45,7 +45,7 @@ books.get('books/seed', (req, res) => {
 
 // !index to all books
 books.get('/',(req, res) => {
-    Book.find()  
+    Books.find()  
     .then(books => {
        res.json(books);
      })
@@ -101,7 +101,9 @@ books.put('/:id', (req, res) => {
         .catch(error => {
             console.error('Error updating book:', error);
             res.status(500).json({ error: 'Failed to update book' });
-        }); ``
+        }); 
+    })
+
 // !delete book by id
 
 books.delete('/:id', (req, res) => {

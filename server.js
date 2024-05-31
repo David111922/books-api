@@ -1,6 +1,6 @@
 // !Dependencies
-const mongoose = require("mongoose");
 const express = require('express')
+const mongoose = require("mongoose");
 const cors = require('cors')
 
 // !Configuration
@@ -11,7 +11,7 @@ const MONGO_URI = process.env.MONGO_URI;
 const app = express();
 app.use(cors())
 
-
+// !connect to Mongo with promise
 mongoose.connect(MONGO_URI)
 
 
@@ -33,11 +33,17 @@ mongoose.connect(MONGO_URI)
 
 // !Routes
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
 // Routes
 app.get('/',(req,res) =>{
 res.send('Hello World')
-
+res.json({ msg: 'This is CORS-enabled for all origins!' })
 })
+// REQUIRE CONTROLLERS
+const booksController = require('./controllers/books-controllers')
+app.use('/books', booksController);
+
+
 
 // !Listen
 // app.listen(PORT,() => {
